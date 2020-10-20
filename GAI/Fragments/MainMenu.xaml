@@ -8,27 +8,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainMenu">
 
-    <StackPanel x:Name="RootLayout" Background="White">
+    <StackPanel x:Name="RootLayout" Background="White" VerticalAlignment="Stretch" Height="Auto">
     
             <StackPanel>
                 <StackPanel.Background>
                     <SolidColorBrush Color="{StaticResource PrimaryColor}"/>
                 </StackPanel.Background>
-                <TextBlock HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource PrimaryColorText}">Created by NukDokPlex</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="24" Foreground="{StaticResource PrimaryColorText}">Главное меню</TextBlock>
             </StackPanel>
-        <StackPanel>
-            <TextBlock >
+        <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto">
+            
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Height="Auto">
                 <ListBox>
-                    <ListBoxItem>
-                        <Hyperlink NavigateUri="MainMenu.xaml" Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>
+                    <ListBoxItem Margin="20">
+                        <Hyperlink FontSize="24" NavigateUri="MainMenu.xaml" Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>
                     </ListBoxItem>
-                    <ListBoxItem>
-                        <Hyperlink Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>
+                    <ListBoxItem Margin="20">
+                        <Hyperlink FontSize="24" Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>
                     </ListBoxItem>
                 </ListBox>
-                
+
             </TextBlock>
-        </StackPanel>
+            
+
+        </DockPanel>
     
     </StackPanel>
 </Page>
