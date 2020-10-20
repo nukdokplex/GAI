@@ -1,0 +1,27 @@
+﻿<Page x:Class="GAI.Fragments.UIElements.DefaultHeader"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GAI.Fragments.UIElements"
+      mc:Ignorable="d" 
+      Title="DefaultHeader">
+    <StackPanel x:Name="Header">
+        <StackPanel.Background>
+            <SolidColorBrush Color="{StaticResource PrimaryColor}"/>
+        </StackPanel.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{StaticResource HeaderHeight}"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource HeaderHeight}"/>
+                <ColumnDefinition Width="{StaticResource HeaderHeight}"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="HeaderBackButton" Source="/Resources/arrow_back.png" Grid.Column="0" Grid.Row="0" Margin="20,0,0,0" />
+            <Image x:Name="HeaderLogo" Source="/Resources/header_logo.png" Grid.Column="1" Grid.Row="0" Margin="10"/>
+            <TextBlock  VerticalAlignment="Center" Margin="0,0,20,0" FontSize="30" Foreground="{StaticResource PrimaryColorText}" x:Name="HeaderTitle" Grid.Column="2" Grid.Row="0" Text="{StaticResource StartFragmentHeaderTitle}"/>
+        </Grid>
+    </StackPanel>
+</Page>

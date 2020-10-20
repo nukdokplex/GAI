@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\REG_MARK_LIB\REG_MARK_LIB.csproj" />
+    <ProjectReference Include="..\VIN_LIB\VIN_LIB.csproj" />
+  </ItemGroup>
+
+</Project>

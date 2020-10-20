@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GAI.Resources">
+    <Color x:Key="PrimaryColor">
+        #6183b1
+    </Color>
+    <Color x:Key="AccentColor">
+        #d43927
+    </Color>
+    <Brush x:Key="AccentColorBrush">
+        #d43927
+    </Brush>
+    <Color x:Key="WindowBackground">
+        #eeeeee
+    </Color>
+    <Brush x:Key="PrimaryColorText">
+        #fff
+    </Brush>
+    <Brush x:Key="AccentColorText">
+        #fff
+    </Brush>
+    <Style TargetType="{x:Type NavigationWindow}">
+        
+    </Style>
+    
+</ResourceDictionary>
