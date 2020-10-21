@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище GAIModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="drivers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="first_name" Type="nchar" MaxLength="32" Nullable="false" />
+          <Property Name="middle_name" Type="nchar" MaxLength="32" />
+          <Property Name="last_name" Type="nchar" MaxLength="32" Nullable="false" />
+          <Property Name="passport_serial" Type="nchar" MaxLength="8" />
+          <Property Name="passport_number" Type="nchar" MaxLength="12" />
+          <Property Name="postcode" Type="nchar" MaxLength="12" />
+          <Property Name="address" Type="nchar" MaxLength="54" />
+          <Property Name="address_life" Type="nchar" MaxLength="54" />
+          <Property Name="company" Type="nchar" MaxLength="24" />
+          <Property Name="job" Type="nchar" MaxLength="24" />
+          <Property Name="phone" Type="nchar" MaxLength="15" />
+          <Property Name="email" Type="nchar" MaxLength="32" />
+          <Property Name="photo" Type="nchar" MaxLength="54" />
+          <Property Name="description" Type="ntext" />
+        </EntityType>
+        <EntityContainer Name="Хранилище GAIModelContainer">
+          <EntitySet Name="drivers" EntityType="Self.drivers" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GAIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="drivers" EntityType="GAIModel.driver" />
+        </EntityContainer>
+        <EntityType Name="driver">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="middle_name" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="passport_serial" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="passport_number" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="postcode" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="54" FixedLength="true" Unicode="true" />
+          <Property Name="address_life" Type="String" MaxLength="54" FixedLength="true" Unicode="true" />
+          <Property Name="company" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+          <Property Name="job" Type="String" MaxLength="24" FixedLength="true" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="54" FixedLength="true" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GAIModelContainer" CdmEntityContainer="dbConnection">
+        <EntitySetMapping Name="drivers">
+            <EntityTypeMapping TypeName="GAIModel.driver">
+              <MappingFragment StoreEntitySet="drivers">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="address_life" ColumnName="address_life" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="passport_number" ColumnName="passport_number" />
+                <ScalarProperty Name="passport_serial" ColumnName="passport_serial" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

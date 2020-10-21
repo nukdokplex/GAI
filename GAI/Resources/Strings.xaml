@@ -1,10 +1,28 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:GAI.Resources" xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:local="clr-namespace:GAI.Resources" xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:utils="clr-namespace:GAI.Utils">
     <system:String x:Key="AppName">
         ГосАвтоИнспеция
     </system:String>
     <system:String x:Key="StartFragmentHeaderTitle">
         ГосАвтоИнспекция
     </system:String>
+    <utils:ObjectCollection x:Key="DriverFields">
+        <system:String>Идентификатор</system:String>
+        <system:String>Имя</system:String>
+        <system:String>Отчество</system:String>
+        <system:String>Фамилия</system:String>
+        <system:String>Серия паспорта</system:String>
+        <system:String>Номер паспорта</system:String>
+        <system:String>Почтовый индекс</system:String>
+        <system:String>Место регистрации</system:String>
+        <system:String>Фактическое проживание</system:String>
+        <system:String>Место работы (организация)</system:String>
+        <system:String>Должность</system:String>
+        <system:String>Номер телефона</system:String>
+        <system:String>E-Mail</system:String>
+        <system:String>Фотография</system:String>
+        <system:String>Заметки</system:String>
+    </utils:ObjectCollection>
 </ResourceDictionary>

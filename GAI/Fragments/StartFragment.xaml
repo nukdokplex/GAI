@@ -15,8 +15,5 @@
         </StackPanel.Background>
         <Frame NavigationUIVisibility="Hidden" x:Name="HeaderContainer" Source="/Fragments/UIElements/DefaultHeader.xaml"/>
         <Frame NavigationUIVisibility="Hidden" x:Name="NavigationContainer" Source="/Fragments/MainMenu.xaml"/>
-       
-        
-        
     </StackPanel>
 </Page>

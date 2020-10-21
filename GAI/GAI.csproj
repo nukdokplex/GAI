@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,13 +62,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="driver.cs">
+      <DependentUpon>GAIDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAIDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAIDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAIDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAIDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GAIDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GAIDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DBHolder.cs" />
+    <Compile Include="Fragments\DriversFragment.xaml.cs">
+      <DependentUpon>DriversFragment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Fragments\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Fragments\StartFragment.xaml.cs">
       <DependentUpon>StartFragment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Types.cs" />
     <Compile Include="Utils\UIUtils.cs" />
+    <Page Include="Fragments\DriversFragment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Fragments\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +154,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="GAIDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GAIDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GAIDataModel.edmx.diagram">
+      <DependentUpon>GAIDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,6 +173,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GAIDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GAIDataModel.edmx</DependentUpon>
+      <LastGenOutput>GAIDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GAIDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GAIDataModel.edmx</DependentUpon>
+      <LastGenOutput>GAIDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

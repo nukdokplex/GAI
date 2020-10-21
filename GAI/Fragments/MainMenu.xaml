@@ -21,7 +21,7 @@
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Height="Auto">
                 <ListBox>
                     <ListBoxItem Margin="20">
-                        <Hyperlink FontSize="24" NavigateUri="MainMenu.xaml" Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>
+                        <Hyperlink FontSize="24" NavigateUri="DriversFragment.xaml" Foreground="{StaticResource AccentColorBrush}">Водители</Hyperlink>
                     </ListBoxItem>
                     <ListBoxItem Margin="20">
                         <Hyperlink FontSize="24" Foreground="{StaticResource AccentColorBrush}">Изменение информации о водителе</Hyperlink>

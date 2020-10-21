@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -16,10 +18,11 @@ namespace GAI
 {
     public partial class MainActivty : Window
     {
+        
         public MainActivty()
         {
-            
-            //InitializeComponent();
+           
         }
+        
     }
 }
