@@ -65,6 +65,9 @@
     <Compile Include="driver.cs">
       <DependentUpon>GAIDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fragments\EditDriverFragment.xaml.cs">
+      <DependentUpon>EditDriverFragment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GAIDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,19 +87,24 @@
     <Compile Include="Fragments\DriversFragment.xaml.cs">
       <DependentUpon>DriversFragment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Fragments\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
+    <Compile Include="Fragments\MainMenuFragment.xaml.cs">
+      <DependentUpon>MainMenuFragment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Fragments\StartFragment.xaml.cs">
       <DependentUpon>StartFragment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Types.cs" />
     <Compile Include="Utils\UIUtils.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Page Include="Fragments\DriversFragment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Fragments\MainMenu.xaml">
+    <Page Include="Fragments\EditDriverFragment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fragments\MainMenuFragment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +196,7 @@
       <DependentUpon>GAIDataModel.edmx</DependentUpon>
       <LastGenOutput>GAIDataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\driver_license_template.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

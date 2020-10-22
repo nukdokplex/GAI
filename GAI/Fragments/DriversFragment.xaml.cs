@@ -77,6 +77,20 @@ namespace GAI.Fragments
             var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
             //MessageBox.Show(content.ToString());
             //I wanna die
+            //So... Continuing...
+            GoToEditDriverPage(int.Parse(content));
+        }
+
+        private void ScrollViewer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var cellInfo = driversDataGrid.SelectedCells[0];
+            var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
+            GoToEditDriverPage(int.Parse(content));
+        }
+
+        private void GoToEditDriverPage(int driverId)
+        {
+            this.NavigationService.Navigate(new EditDriverFragment(driverId));
         }
     }
 }
