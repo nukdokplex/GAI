@@ -6,89 +6,79 @@
       xmlns:local="clr-namespace:GAI.Fragments"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditDriverPage">
+      Title="EditDriverPage" Loaded="Fragment_Loaded" DataContext="EditDriverFragment">
 
-    <StackPanel>
-        <Grid Width="650" Height="400" HorizontalAlignment="Center">
-            <Grid.Background>
-                <ImageBrush ImageSource="/Resources/driver_license_template.jpg"/>
-            </Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="49*"/>
-                <ColumnDefinition Width="116*"/>
-                <ColumnDefinition Width="347*"/>
-                <ColumnDefinition Width="138*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="141*"/>
-                <RowDefinition Height="163*"/>
-                <RowDefinition Height="96*"/>
-            </Grid.RowDefinitions>
-            <Image Name="DriverPhotoImage" Grid.Row="1" Grid.Column="1"/>
-            <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="0.2,0.2,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="27*"/>
-                    <ColumnDefinition Width="42*"/>
-                    <ColumnDefinition Width="278*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100*"/>
-                    <RowDefinition Height="100*"/>
-                    <RowDefinition Height="170*"/>
-                    <RowDefinition Height="60*"/>
-                    <RowDefinition Height="100*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="100*"/>
-                    <RowDefinition Height="100*"/>
-                </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="0" Grid.Column="1">1.</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="1" Grid.Column="1">2.</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="2" Grid.Column="1">3.</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="3" Grid.Column="1">4(a)</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="4" Grid.Column="1">4(c)</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="5" Grid.Column="1">5.</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="6" Grid.Column="1">8.</TextBlock>
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Foreground="Purple" Grid.Row="7" Grid.Column="1">9.</TextBlock>
-                <StackPanel Grid.Column="2" Grid.Row="0"><!-- 1 -->
-                    <TextBlock x:Name="LastNameLicense" FontSize="15"/>
-                    <TextBlock x:Name="LastNameTransliterationLicense" FontSize="10"/>
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource WindowBackground}"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Column="0" Grid.Row="0">
+            <Image x:Name="Avatar" Width="200" Height="200" />
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Margin="0,0,10,0">Имя:</TextBlock>
+                    <TextBox x:Name="FirstNameField" Width="200" Text="{Binding currentDriver.first_name}"></TextBox>
                 </StackPanel>
-                
-                <StackPanel Grid.Column="2"  Grid.Row="1"><!-- 2 -->
-                    <TextBlock x:Name="FirstMiddleNameLicense" FontSize="15"/>
-                    <TextBlock x:Name="FirstMiddleNameTransliterationLicense" FontSize="10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Margin="0,0,10,0">Фамилия:</TextBlock>
+                    <TextBox x:Name="LastNameField" Width="200" Text="{Binding currentDriver.last_name}"></TextBox>
                 </StackPanel>
-                
-                <StackPanel Grid.Column="2"  Grid.Row="2"><!-- 3 -->
-                    <TextBlock x:Name="BirthDateLicense" FontSize="15"/>
-                    <TextBlock x:Name="BirthPlaceLicense" FontSize="15"/>
-                    <TextBlock x:Name="BirthPlaceTransliterationLicense" FontSize="10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                    <TextBlock Margin="0,0,10,0">Отчество:</TextBlock>
+                    <TextBox x:Name="MiddleNameField" Width="200" Text="{Binding currentDriver.middle_name}"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="3">
-                    <TextBlock x:Name="CreatedAtLicense" FontSize="15" Margin="0,0,60,0"/>
-                    <TextBlock x:Name="ExpiresAtLicense" FontSize="15"/>
-                </StackPanel>
-                <StackPanel Grid.Column="2"  Grid.Row="4"><!-- 4 -->
-                    <TextBlock x:Name="GIBDDLicense" FontSize="15"/>
-                    <TextBlock x:Name="GIBDDTransliterationLicense" FontSize="10"/>
-                </StackPanel>
-
-                <TextBlock x:Name="PassportSerialAndNumberLicense" Grid.Column="2" Grid.Row="5" FontSize="15"/>
-                <!-- 5 -->
-                
-                <StackPanel Grid.Column="2" Grid.Row="6"><!-- 6 -->
-                    <TextBlock x:Name="IssuePlaceLicense" FontSize="15"/>
-                    <TextBlock x:Name="IssuePlaceTransliterationLicense" FontSize="10"/>
-                </StackPanel>
-
-                <TextBlock x:Name="CategoriesLicense" Grid.Column="2" Grid.Row="7" FontSize="20"/>
-                <!-- 7 -->
-            </Grid>
-        </Grid>
-
-        <StackPanel>
-
+            </StackPanel>
+            
         </StackPanel>
-    </StackPanel>
+        <ScrollViewer Height="Auto" Grid.Column="0" Grid.Row="1">
+            <StackPanel Height="Auto">
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Серия паспорта:</TextBlock>
+                    <TextBox x:Name="PassportSerialField" Width="200" Text="{Binding currentDriver.passport_serial}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Номер паспорта:</TextBlock>
+                    <TextBox x:Name="PassportNumberField" Width="200" Text="{Binding currentDriver.passport_number}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Почтовый индекс:</TextBlock>
+                    <TextBox x:Name="PostcodeField" Width="200" Text="{Binding currentDriver.postcode}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Адрес регистрации:</TextBlock>
+                    <TextBox x:Name="AddressField" Width="200" Text="{Binding currentDriver.address}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Фактическое проживание:</TextBlock>
+                    <TextBox x:Name="AddressLifeField" Width="200" Text="{Binding currentDriver.address_life}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Место работы:</TextBlock>
+                    <TextBox x:Name="CompanyField" Width="200" Text="{Binding currentDriver.company}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Должность:</TextBlock>
+                    <TextBox x:Name="JobField" Width="200" Text="{Binding currentDriver.job}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Номер телефона:</TextBlock>
+                    <TextBox x:Name="PhoneField" Width="200" Text="{Binding currentDriver.phone}"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="10,5,10,5" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Заметки:</TextBlock>
+                    <TextBox AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding currentDriver.description}" VerticalScrollBarVisibility="Auto" Height="100" MaxHeight="200" x:Name="DescriptionField" Width="200"></TextBox>
+                </StackPanel>
+                <Button x:Name="SaveButton" Click="SaveButton_Click">Сохранить данные о водителе</Button>
+            </StackPanel>
+        </ScrollViewer>
+        
+        
+    </Grid>
 </Page>
