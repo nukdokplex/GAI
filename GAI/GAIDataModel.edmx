@@ -25,8 +25,29 @@
           <Property Name="photo" Type="nchar" MaxLength="54" />
           <Property Name="description" Type="ntext" />
         </EntityType>
+        <EntityType Name="regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="region_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="subject_code" Type="nvarchar" MaxLength="50" />
+          <Property Name="codes" Type="nvarchar" MaxLength="50" />
+          <Property Name="iso3166_2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="32" />
+          <Property Name="password_hash" Type="nvarchar" MaxLength="50" />
+          <Property Name="privileges" Type="binary" MaxLength="32" />
+        </EntityType>
         <EntityContainer Name="Хранилище GAIModelContainer">
           <EntitySet Name="drivers" EntityType="Self.drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,6 +55,8 @@
       <Schema Namespace="GAIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="dbConnection" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="drivers" EntityType="GAIModel.driver" />
+          <EntitySet Name="users" EntityType="GAIModel.user" />
+          <EntitySet Name="regions" EntityType="GAIModel.region" />
         </EntityContainer>
         <EntityType Name="driver">
           <Key>
@@ -54,6 +77,25 @@
           <Property Name="email" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
           <Property Name="photo" Type="String" MaxLength="54" FixedLength="true" Unicode="true" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="password_hash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="privileges" Type="Binary" MaxLength="32" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="region_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="subject_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="iso3166_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -78,6 +120,27 @@
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
                 <ScalarProperty Name="middle_name" ColumnName="middle_name" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="GAIModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="privileges" ColumnName="privileges" />
+                <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="GAIModel.region">
+              <MappingFragment StoreEntitySet="regions">
+                <ScalarProperty Name="iso3166_2" ColumnName="iso3166_2" />
+                <ScalarProperty Name="codes" ColumnName="codes" />
+                <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+                <ScalarProperty Name="region_name" ColumnName="region_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

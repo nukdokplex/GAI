@@ -26,5 +26,7 @@ namespace GAI
         }
     
         public virtual DbSet<driver> drivers { get; set; }
+        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<region> regions { get; set; }
     }
 }
