@@ -35,24 +35,10 @@ namespace GAI.Fragments
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var getDriversQuery = from driver in DBHolder.DB.drivers select new { 
-                driver.id, //hide 0
-                driver.first_name, 
-                driver.middle_name, 
-                driver.last_name, 
-                driver.passport_serial, 
-                driver.passport_number, 
-                driver.postcode, //hide 6
-                driver.address, //hide 7
-                driver.address_life, //hide 8 
-                driver.company, //hide 9
-                driver.job, //hide 10
-                driver.phone, 
-                driver.email, //hide 12
-                driver.photo, //hide 13
-                driver.description //hide 14
-            };
+            var getDriversQuery = from driver in DBHolder.DB.drivers select driver;
             driversDataGrid.ItemsSource = getDriversQuery.ToList();
+
+            
 
             if (System.Windows.Application.Current.Resources.Contains("DriverFields"))
             {

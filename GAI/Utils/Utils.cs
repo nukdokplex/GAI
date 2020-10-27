@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace GAI.Utils
@@ -18,6 +19,22 @@ namespace GAI.Utils
                 "CH", "SH", "SHCH", "\"", "Y", "'", "E", "YU", "YA" };
             return transliterations[cyrillicChars.IndexOf(Symbol)];
             
+        }
+
+        public static string HashStringMD5(string input)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                StringBuilder stringBuilder = new StringBuilder();
+                foreach (byte hashByte in hashBytes)
+                {
+                    stringBuilder.Append(hashByte.ToString("X2"));
+                }
+                return stringBuilder.ToString();
+            }
         }
     }
 }

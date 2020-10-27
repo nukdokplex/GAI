@@ -13,7 +13,7 @@
         <StackPanel.Background>
             <SolidColorBrush Color="{StaticResource WindowBackground}"/>
         </StackPanel.Background>
-        <Frame NavigationUIVisibility="Hidden" x:Name="HeaderContainer" Source="/Fragments/UIElements/DefaultHeader.xaml"/>
-        <Frame NavigationUIVisibility="Hidden" x:Name="NavigationContainer" Source="/Fragments/MainMenuFragment.xaml"/>
+        <Frame  x:Name="HeaderContainer"/>
+        <Frame  x:Name="NavigationContainer" Navigated="NavigationContainer_Navigated" Source="/Fragments/AuthFragment.xaml"/>
     </StackPanel>
 </Page>

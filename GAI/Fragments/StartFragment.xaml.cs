@@ -20,50 +20,29 @@ namespace GAI
     /// </summary>
     public partial class StartFragment : Page
     {
+
+        public static DefaultHeader MainHeader;
         public StartFragment()
         {
             InitializeComponent();
-            
+            MainHeader = new DefaultHeader();
+            HeaderContainer.Navigate(MainHeader);
         }
 
-        public void setHeaderTitle(string title)
+        public static void setHeaderTitle(string title)
         {
-            try
-            {
-                DefaultHeader header = (HeaderContainer.Content as DefaultHeader);
-                header.HeaderTitle.Text = title;
-            }
-            catch (Exception)
-            {
-
-            }
+            MainHeader.HeaderTitle.Text = title;
         }
 
         private void NavigationContainer_Navigated(object sender, NavigationEventArgs e)
         {
             if (NavigationContainer.CanGoBack)
             {
-                try
-                {
-                    DefaultHeader header = (HeaderContainer.Content as DefaultHeader);
-                    header.HeaderBackButton.Visibility = Visibility.Visible;
-                }
-                catch (Exception)
-                {
-                    
-                }
+                MainHeader.HeaderBackButton.Visibility = Visibility.Collapsed;
             }
             else
             {
-                try
-                {
-                    DefaultHeader header = (HeaderContainer.Content as DefaultHeader);
-                    header.HeaderBackButton.Visibility = Visibility.Collapsed;
-                }
-                catch (Exception)
-                {
-
-                }
+                MainHeader.HeaderBackButton.Visibility = Visibility.Visible;
             }
         }
     }
